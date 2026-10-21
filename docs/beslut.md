@@ -99,3 +99,39 @@ på om du gör om det för en annan sajt. I samma ordning som de gjordes,
 - **Valt:** Presentationsläget öppnades aldrig. Knappen Present har en bubbla, men knapparna inne i presentationsläget saknar förklaring. Anthon valde 2026-10-21 att hoppa över det.
 - **Varför:** Present startar ett läge på tavlan och räknas inte till gränssnittet runt tavlan i punkt 1.
 - **Tänk på:** Fråga innan du öppnar något som startar ett läge, en session eller ett samtal.
+
+## Underlag: ordning och källor
+
+Ordningen 21 oktober 2026, som regel 2 och regel 6 kräver:
+
+1. Chrome Web Stores krav lästes av en hjälpagent innan något byggdes. Ingen förklaring var skriven än.
+2. Ankarna inventerades på kontrollpanelen, i inställningarna och på testtavlan. Ingen förklaring var skriven än.
+3. STOPP: Anthon fick se ankarna (data-testid, aria-label, undantagen) och svarade "Ja, testid först".
+4. Först därefter skrevs `extension/explanations.js`.
+
+Källor för Chrome Web Stores krav (lästa 2026-10-21):
+
+- Paket och manifest, zip med manifest i roten, beskrivning max 132 tecken: https://developer.chrome.com/docs/webstore/prepare
+- Namn max 75 tecken: https://developer.chrome.com/docs/extensions/reference/manifest/name
+- Version: https://developer.chrome.com/docs/extensions/reference/manifest/version
+- Ikoner i manifestet: https://developer.chrome.com/docs/extensions/reference/manifest/icons
+- Butiksikon 96x96 med 16 px kant, skärmbilder 1280x800 (1-5 st), liten kampanjbild 440x280 krävs: https://developer.chrome.com/docs/webstore/images
+- Butikstext: https://developer.chrome.com/docs/webstore/cws-dashboard-listing
+- Privacy-fliken (single purpose, behörigheter, remote code, data usage, policy): https://developer.chrome.com/docs/webstore/cws-dashboard-privacy
+- När en integritetspolicy krävs: https://developer.chrome.com/docs/webstore/program-policies/user-data-faq
+- Policyer: https://developer.chrome.com/docs/webstore/program-policies/policies
+- Varumärken och att inte likna andra: https://developer.chrome.com/docs/webstore/program-policies/impersonation-and-intellectual-property
+- Nyckelord och spam: https://developer.chrome.com/docs/webstore/program-policies/spam-faq
+- Smalast möjliga behörigheter, content script utan host_permissions: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions
+- Behörigheter som inte ger varning (storage): https://developer.chrome.com/docs/extensions/reference/permissions-list
+- Granskning: https://developer.chrome.com/docs/webstore/review-process
+- Tvåstegsverifiering: https://developer.chrome.com/docs/webstore/program-policies/two-step-verification
+- Trader eller non-trader: https://developer.chrome.com/docs/webstore/program-policies/trader-verification-faq
+
+Källor för Miros regler:
+
+- Namn "<app> for Miro": https://developers.miro.com/docs/design-guidelines
+- Ingen antydan om koppling till Miro: https://miro.com/legal/developer-terms-of-use/
+- Användarvillkor: https://miro.com/legal/terms-of-service/
+
+Inte bekräftat på en officiell sida: avgiftens storlek, teckengränsen för den långa beskrivningen och om en video krävs. Kolla dem i konsolen.

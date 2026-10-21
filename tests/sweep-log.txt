@@ -313,7 +313,7 @@ Nya menyer att öppna i nästa svep, utöver punkt 1-18 ovan:
 
 Inte öppnade, och varför:
 - Present (tid=presentation-mode-start-session-button): startar presentationsläget.
-  Väntar på Anthons beslut.
+  Anthon valde att hoppa över det (beslut.md punkt 16).
 - Shapes (tid=CreationBarButton--SHAPES) och Sticky note (tid=CreationBarButton--STICKERS):
   panelerna lästes (tid=basic-square, basic-oval, line-button-<n>, stickersApp_*), men de
   innehåller bara former och lappfärger. De förklaras inte enligt regel 1.

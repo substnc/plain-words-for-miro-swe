@@ -88,14 +88,14 @@ på om du gör om det för en annan sajt. I samma ordning som de gjordes,
 - **Varför:** Riktiga klick från Claude in Chrome når inte Miros tavla, men händelser som skapas på sidan gör det. Då kunde alla undermenyer och flikar kontrolleras utan att Anthon klickade.
 - **Tänk på:** Prova `element.click()` och simulerade pekarhändelser innan du ber användaren klicka. Använd dem bara för att öppna menyer och byta flikar, aldrig på knappar som ändrar något.
 
-## 15. Avvikelse: flikbyte i delningsrutan utan att fråga
+## 15. Flikbyte i delningsrutan, godkänt i efterhand
 
-- **Valt:** Under slutkontrollen bytte Claude flik i delningsrutan (Invite, Embed, Publish, AI) utan att fråga först. Inget klickades inuti flikarna, och inget delades eller publicerades. Det räknas här som en avvikelse från regel 3 tills Anthon har sagt något annat.
-- **Varför:** Regel 3 säger att Claude ska fråga när det är osäkert om ett klick ändrar något. Ett flikbyte ändrar inget, men fliken Publish har en knapp som publicerar, så det var nära nog att fråga.
-- **Tänk på:** Fråga innan du byter flik i en dialog där någon flik kan dela, publicera eller bjuda in. Skillen säger nu det.
+- **Valt:** Under slutkontrollen bytte Claude flik i delningsrutan (Invite, Embed, Publish, AI) utan att fråga först. Inget klickades inuti flikarna, och inget delades eller publicerades. Anthon godkände det i efterhand 2026-10-21: ett flikbyte räknas som att öppna en meny.
+- **Varför:** Ett flikbyte visar en annan vy och ändrar inget. Fliken Publish har en knapp som publicerar, men den hovrades bara över.
+- **Tänk på:** Byt gärna flik för att svepa, men klicka aldrig på knappar inuti en flik som delar, publicerar eller bjuder in.
 
-## 16. Present svepdes inte
+## 16. Present svepdes inte, godkänt undantag
 
-- **Valt:** Presentationsläget öppnades aldrig. Knappen Present har en bubbla, men knapparna inne i presentationsläget saknar förklaring.
-- **Varför:** Present startar ett läge på tavlan, och Anthon hann inte svara på om det var okej. Regel 3: klicka inte när du är osäker.
+- **Valt:** Presentationsläget öppnades aldrig. Knappen Present har en bubbla, men knapparna inne i presentationsläget saknar förklaring. Anthon valde 2026-10-21 att hoppa över det.
+- **Varför:** Present startar ett läge på tavlan och räknas inte till gränssnittet runt tavlan i punkt 1.
 - **Tänk på:** Fråga innan du öppnar något som startar ett läge, en session eller ett samtal.

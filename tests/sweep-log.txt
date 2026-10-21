@@ -275,7 +275,45 @@ och lappfärger), allt på själva tavlan. Present öppnades inte, eftersom det
 startar ett läge.
 
 Nya menyer att öppna i nästa svep, utöver punkt 1-18 ovan:
-19. Formats and Flows: klick på tid=CreationBarButton--AI_CANVAS_FORMATS_AND_FLOWS_MENU
-20. Activity: klick på tid=toolbar-comment-activity-button, stäng med tid=close-panel
-21. Pen-panelen: klick på tid=CreationBarButton--PEN, rader tid=draw-toolbar-*
-22. Share, flikarna: klick på tid=tab__itemText--embed / --publish / --ai inuti tid=shareMdContainer
+
+19. Tavlan, Formats and Flows
+   PLATS   verktygsfältet till vänster, tredje knappen uppifrån
+   ÖPPNAS  klick (simulerat, element.click()) på tid=CreationBarButton--AI_CANVAS_FORMATS_AND_FLOWS_MENU
+   ANKARE  rot: tid=ai-formats-and-flows-menu (inuti tid=LayoutPanelItem)
+           knappar utan testid, med aria-label: Prototype, Diagram, Table, Timeline,
+           Kanban, Doc, Slides, Engage activities, Talktrack, Flows
+   STATUS  öppnad, 10 av 10 med bubbla. Inget valt.
+
+20. Tavlan, Activity
+   PLATS   uppe till höger, pratbubblan
+   ÖPPNAS  klick (simulerat) på tid=toolbar-comment-activity-button, stängs med tid=close-panel
+   ANKARE  tid=comments-tab, tid=activity-tab, tid=activity-header-tab,
+           tid=sidebar_comments__filter-button, tid=sidebar_comments__options, tid=close-panel
+   STATUS  öppnad, 4 med bubbla, 1 medvetet utan (Close)
+
+21. Tavlan, Pen-panelen
+   PLATS   verktygsfältet till vänster, pennan
+   ÖPPNAS  klick (simulerat) på tid=CreationBarButton--PEN. Väljer pennverktyget men ritar inget.
+           Tillbaka till pekaren med tid=CreationBarButton--CREATION_BAR_CURSOR_BUTTON.
+   ANKARE  rot: tid=draw-toolbar-panel, tid=draw-toolbar-pen, -highlighter, -smart-pen,
+           -eraser, -precision-eraser, tid=draw-toolbar-preset-<n>
+   STATUS  öppnad, 5 med bubbla, 3 medvetet utan, 1 knapp utan ankare
+
+22. Tavlan, Share, flikarna Embed, Publish och AI
+   PLATS   i delningsrutan, raden högst upp
+   ÖPPNAS  delningsrutan med klick (simulerat) på tid=share-board-button, flikarna med klick
+           på tid=tab__itemText--embed / --publish / --ai. Flikbyte visar en annan vy och
+           ändrar inget. Inget klick inuti flikarna.
+   ANKARE  Embed: tid=embed-code__sharing-settings-button, __frame-select-dropdown-button,
+           __preview-area-hover, __toggle-embed-code-button, __help-button,
+           __copy-embed-code-button, __copy-embed-link-button, id=view-only-checkbox
+           Publish: tid=tab__content--publish__button-create_template
+           AI: tid=tab__content--ai__tool-<claude|chatgpt|copilot|cursor|lovable|replit>
+   STATUS  öppnad, alla med ankare har bubbla eller är medvetet utan
+
+Inte öppnade, och varför:
+- Present (tid=presentation-mode-start-session-button): startar presentationsläget.
+  Väntar på Anthons beslut.
+- Shapes (tid=CreationBarButton--SHAPES) och Sticky note (tid=CreationBarButton--STICKERS):
+  panelerna lästes (tid=basic-square, basic-oval, line-button-<n>, stickersApp_*), men de
+  innehåller bara former och lappfärger. De förklaras inte enligt regel 1.

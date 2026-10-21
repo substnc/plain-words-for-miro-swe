@@ -231,3 +231,51 @@ Svårigheter i svep 2:
   inte laddas om behåller det gamla skriptet. Ladda alltid om fliken också.
 - Riktiga klick och riktig hovring från Claude in Chrome når inte tavlan.
   Simulerad mouseover (det svepet gör) fungerar.
+
+
+Svep 3, slutkontroll med slutversionen, 2026-10-21 natt
+-------------------------------------------------------
+
+Claude öppnade alla menyer själv med simulerade klick från sidans skript
+(pointerdown + click, eller element.click()). Riktiga klick från Claude in
+Chrome når inte tavlan, men de här gör det. Bara menyer och flikar
+öppnades, aldrig något som ändrar.
+
+Format: med bubbla / medvetet utan (PW_SKIPPED) / saknas
+
+Tavlan, grundläge                   42 / 11 / 0
+Main menu                            7 /  0 / 0
+  undermeny Board                    8 /  4 / 0
+  undermeny Edit                     1 /  3 / 0
+  undermeny View                     6 /  2 / 0
+  undermeny Preferences              5 /  1 / 0
+  undermeny Accessibility            3 /  1 / 0
+Export                               4 /  3 / 0
+Get set up                           5 /  2 / 0
+Facilitation                        10 /  0 / 0
+Video                                3 /  0 / 0
+Din meny                             5 /  0 / 0
+Zoom                                 3 /  6 / 0
+Hjälp                                1 /  4 / 0
+Formats and Flows                   10 /  0 / 0   (nytt, ankare: tid=ai-formats-and-flows-menu + aria-label)
+Activity-panelen                     4 /  1 / 0   (nytt, tid=comments-tab, activity-header-tab, sidebar_comments__*)
+Pen-panelen                          5 /  3 / 1   (en knapp utan namn, testid eller stabilt id)
+Templates                           73 /  3 / 0   (efter rättning: id=tpicker_autoshow)
+Tools, Media and Integrations      140 /  1 / 0   (efter rättning: länken till Marketplace)
+Share, fliken Invite                 8 /  1 / 0
+Share, fliken Embed                  9 /  2 / 0   (efter rättning: id=view-only-checkbox)
+Share, fliken Publish                6 /  0 / 0
+Share, fliken AI                    10 /  1 / 0
+Kontrollpanelen                     31 /  7 / 0
+Inställningar, Users                16 /  5 / 2   (medlemsraden och dess bild, inga ankare)
+Inställningar, Security             22 / 13 / 3   (tomt fält, tom knapp och Add för domäner, inga ankare)
+
+Inte förklarat med flit (regel 1): panelerna Shapes och Sticky note (former
+och lappfärger), allt på själva tavlan. Present öppnades inte, eftersom det
+startar ett läge.
+
+Nya menyer att öppna i nästa svep, utöver punkt 1-18 ovan:
+19. Formats and Flows: klick på tid=CreationBarButton--AI_CANVAS_FORMATS_AND_FLOWS_MENU
+20. Activity: klick på tid=toolbar-comment-activity-button, stäng med tid=close-panel
+21. Pen-panelen: klick på tid=CreationBarButton--PEN, rader tid=draw-toolbar-*
+22. Share, flikarna: klick på tid=tab__itemText--embed / --publish / --ai inuti tid=shareMdContainer

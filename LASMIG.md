@@ -14,11 +14,11 @@ Sök på **Plain Words for Miro SWE** i Chrome Web Store och klicka på **Lägg 
 
 Det tar ungefär fem minuter. Du gör det bara en gång.
 
-1. **Hämta filerna.** Be Anthon om zip-filen `plain-words-for-miro-swe-1.0.0.zip`.
+1. **Hämta filerna.** Gå till https://github.com/substnc/plain-words-for-miro-swe. Klicka på den gröna knappen **Code** och sedan på **Download ZIP**.
 2. **Packa upp.** Öppna mappen Hämtade filer och dubbelklicka på zip-filen. Flytta mappen till ett ställe där den får ligga kvar, till exempel Dokument. Raderar du mappen slutar tillägget att fungera.
 3. **Öppna Chromes tilläggssida.** Skriv `chrome://extensions` i adressfältet och tryck Enter.
 4. **Slå på utvecklarläget.** Klicka på reglaget **Utvecklarläge** (Developer mode) uppe till höger. Det betyder bara att du får lägga in tillägg från din egen dator.
-5. **Lägg in tillägget.** Klicka på **Läs in okomprimerat tillägg** (Load unpacked) och välj mappen från steg 2 (den där filen manifest.json ligger).
+5. **Lägg in tillägget.** Klicka på **Läs in okomprimerat tillägg** (Load unpacked) och välj mappen **extension** inuti mappen från steg 2.
 6. **Sätt fast ikonen.** Klicka på pusselbiten uppe till höger i Chrome och på nålen bredvid **Plain Words for Miro SWE**.
 7. **Prova.** Gå till https://miro.com/app/dashboard/ och håll musen still över en knapp.
 

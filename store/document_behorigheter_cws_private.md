@@ -56,5 +56,6 @@ Kryssa i alla tre intygen:
 
 ## Privacy policy
 
-Adressen till `store/document_integritetspolicy_private.html` när den ligger
-publikt. Se checklistan för var den kan ligga.
+https://substnc.github.io/plain-words-for-miro-swe/store/document_integritetspolicy_private.html
+
+Ligger på GitHub Pages från repot substnc/plain-words-for-miro-swe, grenen main.

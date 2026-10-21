@@ -6,7 +6,7 @@ Ett webbläsartillägg för Chrome som förklarar knappar, flikar och menyer på
 
 Inofficiellt. Inte gjort av, godkänt av eller kopplat till Miro.
 
-**Så installerar du det:** läs [LASMIG.md](LASMIG.md).
+**Så installerar du det:** läs [LASMIG.md](LASMIG.md). Integritetspolicy: https://substnc.github.io/plain-words-for-miro-swe/store/document_integritetspolicy_private.html
 
 ## Mappar
 

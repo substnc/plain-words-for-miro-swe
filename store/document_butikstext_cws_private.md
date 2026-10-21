@@ -58,4 +58,5 @@ Plain Words for Miro SWE är ett fristående tillägg. Det är inte gjort av, go
 ## Kontaktuppgifter
 
 Mejl: den adress du verifierar i utvecklarkontot.
-Webbplats: lämna tom, eller GitHub-repot om det blir publikt.
+Webbplats: https://github.com/substnc/plain-words-for-miro-swe
+Integritetspolicy: https://substnc.github.io/plain-words-for-miro-swe/store/document_integritetspolicy_private.html

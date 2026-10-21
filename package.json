@@ -1,0 +1,11 @@
+{
+  "name": "plain-words-for-miro-swe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inofficiell hjälp: håll musen över en knapp i Miro och läs vad den gör, med vardagliga ord på svenska.",
+  "scripts": {
+    "test": "node tests/check-texts.js",
+    "sync": "node tests/sync-skipped.js",
+    "icons": "python3 tools/make_icons.py"
+  }
+}

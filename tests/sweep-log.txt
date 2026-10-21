@@ -1,0 +1,233 @@
+Plain Words for Miro SWE: svepets logg
+=======================================
+
+Format per meny/panel:
+  PLATS     sidan och var på sidan
+  ÖPPNAS    klick eller hovring, och på vad (ankaret)
+  ANKARE    data-testid (tid), aria-label (al), role
+  STATUS    öppnad / gick inte att öppna / inte öppnad (varför)
+
+Nästa svep kör samma lista uppifrån och ned. Stäng varje meny med Esc innan
+nästa öppnas. Klicka aldrig på något inuti en meny.
+
+Tillåtna sidor (regel 3): kontrollpanelen /app/dashboard/..., inställningarna
+/app/settings/..., och bara tavlan plain-words-test (/app/board/<testtavlans id>/).
+
+
+Svep 1, 2026-10-21
+------------------
+
+1. Kontrollpanelen, grundläge (ingen meny öppen)
+   PLATS   /app/dashboard/org/N/team/N/
+   ÖPPNAS  ingenting, läst direkt
+   ANKARE  tid=sidebar-header, tid=icon-button-[object-object] al="Organization settings",
+           tid=icon-button-create-an-organization, tid=space-input-search,
+           tid=create-menu-trigger al="Create new" / al="Create",
+           tid=tree-item-home / tree-item-starred / tree-item-browse (a role=button),
+           tid=create-menu-create-space, tid=team-free-create-space-link,
+           tid=spaces-header-miro-logo, tid=platform-beta-tag,
+           tid=free-plan-upgrade-popover__chip, tid=dashboard-promotion-buttons__invite_members-button,
+           tid=dashboard-promotion-buttons__upgrade-button, tid=referral-program_button,
+           tid=feedback-button, tid=user-switcher__root (role=button, aria-haspopup=menu),
+           tid=dashboardTemplatesPanel__createNewBoard, tid=dashboardTemplatesPanel__fromTemplate,
+           mallkorten under ^templates-panel-loaded-templates (bara text, byts ut ofta),
+           tid=icon-button-grid, tid=icon-button-list,
+           tavlorna: a[href^="/app/board/"] med al=tavlans namn
+   OBS     icon-button-[object-object] är ett trasigt testid hos Miro. Använd
+           aria-label "Organization settings" i första hand.
+           Klockan (aviseringar) hittades inte som knapp med testid. Kolla i svep 2.
+   STATUS  läst
+
+2. Kontrollpanelen, Create-menyn
+   PLATS   vänsterspalten, plus-knappen bredvid sökrutan, och knappen Create i mitten
+   ÖPPNAS  klick på tid=create-menu-trigger
+   ANKARE  rot: div role=menu tid=create-boards-dropdown
+           role=menuitem: tid=create-menu-create-board "Board", "Format" (inget tid),
+           tid=create-menu-create-space "Space", "Import" (inget tid),
+           tid=create-menu-explore-templates "Explore templates", "Explore Miroverse" (inget tid)
+   OBS     tre rader saknar testid. Känns igen på text inuti tid=create-boards-dropdown.
+   STATUS  öppnad, stängd med Esc
+
+3. Kontrollpanelen, profilmenyn
+   PLATS   uppe till höger, den runda bilden med initial
+   ÖPPNAS  klick på tid=user-switcher__root
+   ANKARE  rot: role=menu
+           role=menuitem: tid=user-profiles__no-sub-item (ditt namn),
+           tid=user-switcher__user-profile-btn "Profile", tid=connect-ai-tools-menu-item,
+           tid=user-switcher__admin-console-btn, tid=user-switcher__trash-btn,
+           tid=user-switcher__learning-center-btn, tid=user-switcher__open-apps-btn,
+           tid=user-switcher__developer-plan-btn, tid=user-switcher__open-marketplace-btn,
+           tid=user-switcher__upgrade-btn, tid=user-switcher__logout-btn
+   STATUS  öppnad, stängd med Esc
+
+4. Inställningar, Users
+   PLATS   /app/settings/company/N/teams/N/users (öppnas i ny flik)
+   ÖPPNAS  klick på al="Organization settings" på kontrollpanelen
+   ANKARE  tid=hamburger-menu-button al=Menu, tid=topBar__goToBoards-button,
+           tid=topBar-upgrade-button, tid=topBar__helpCenter-button, tid=user-profile-trigger al="Settings Menu",
+           vänstermenyn: tid=top-level-menu-item__link (samma på alla, skiljs åt med
+           aria-label/href: Users, Analytics, Security, Miro AI, Apps, Team profile),
+           tid=invite-new-members__button, flikarna Members/Guests (button role=tab)
+   OBS     en enkät från InMoment lade sig längst ned. Rördes inte.
+   STATUS  läst, fliken stängd
+
+5. Tavlan plain-words-test, grundläge
+   PLATS   /app/board/<testtavlans id>/
+   ÖPPNAS  ingenting, läst direkt
+   ANKARE  överst till vänster: tid=toggle-spaces-sidebar-button, tid=board-header__logo al=Home,
+           tid=board-icon-picker__container al="Choose emoji", tid=board-title__container al="Click to rename",
+           tid=board-settings__toggle-icon al="Main menu", tid=board-export__plugin_toggle-icon al="Export this board",
+           tid=upgrade-btn
+           överst till höger: tid=welcome-checklist__entrypoint, tid=timberlake-facilitation-apps-and-reactions-dropdown__trigger,
+           tid=toolbar-comment-activity-button al=Activity, tid=videotoolsdropdown-toggle,
+           tid=self-user-dropdown-trigger, tid=presentation-mode-start-session-button al=Present,
+           tid=share-board-button "Share"
+           verktygsfältet till vänster (tid=CreationBarButton--X): CREATION_BAR_CURSOR_BUTTON (Select),
+           AI_CANVAS_FORMATS_AND_FLOWS_MENU, TEMPLATES, STICKERS, TEXT, SHAPES, PEN, FRAMES,
+           MEDIA_LIBRARY, COMMENTS, CATALOG, CREATION_BAR_UNDO, CREATION_BAR_REDO;
+           Sidekick-knappen (gul) al="Hide Sidekick" inuti ^CreationBarTopButtons
+           nere till höger: tid=action-item__FRAMES_LIST, tid=canvas-controls-zoom-out,
+           tid=canvas-controls-zoom-button, tid=canvas-controls-zoom-in, tid=canvas-controls-feedback-button
+           nere i mitten: tid=prompt-starter-chip-*, tid=prompt-starter-bar-dismiss,
+           AI-rutan: textarea al="AI input" inuti ^inline-chat-shell, al="Add content", al="Start dictation"
+   OBS     Miro visar egna svarta tooltips (t.ex. "Main menu") under knappen vid
+           hovring och fokus. Vår bubbla kan hamna ovanpå. Se beslut.md.
+   STATUS  läst
+
+6. Tavlan, menyer (Main menu, Share, Export, profil, Facilitation, video, zoom, hjälp, paneler)
+   PLATS   se punkt 5
+   ÖPPNAS  försökt med klick på tid=board-settings__toggle-icon och tid=share-board-button,
+           och med fokus + Enter/mellanslag
+   STATUS  GICK INTE ATT ÖPPNA. Klicken från Claude in Chrome når inte sidan på tavlan
+           (inga pointer- eller click-händelser registreras), fast samma sorts klick
+           fungerar på kontrollpanelen. Tangentbordsfokus fungerar men öppnar inte menyn.
+           Inte öppnad: Present (startar en presentation, ändrar läge).
+
+   UPPDATERING samma kväll: hovring fungerar på tavlan, klick gör det inte.
+           Anthon öppnade menyerna med ett klick, Claude hovrade över
+           undermenyerna och läste av. Så här öppnades resten:
+
+7. Tavlan, Main menu (tre prickar)
+   PLATS   överst till vänster, bredvid tavlans namn
+   ÖPPNAS  klick (Anthon) på tid=board-settings__toggle-icon, sedan hovring över
+           varje rad med pil: Board, Edit, View, Preferences, Accessibility
+   ANKARE  rot: role=menu tid=board-settings__top-level-menu-container
+           rader: role=menuitem tid=board-settings__item_<namn>_menu och
+           tid=board-settings__app_<NAMN> (t.ex. app_DUPLICATE, app_GRID_MENU,
+           app_REDUCE_MOTION), Export och Move to: tid=settings__export_subMenu,
+           tid=settings__move_to_subMenu
+   STATUS  öppnad, 35 rader, alla med testid
+
+8. Tavlan, Share
+   PLATS   blå knappen uppe till höger
+   ÖPPNAS  klick (Anthon) på tid=share-board-button. Inget klick inuti rutan.
+   ANKARE  rot: role=dialog al=Share, tid=shareMdContainer
+           flikar: tid=tab__item--invite/embed/publish/ai (li role=tab) och
+           tid=tab__itemText--<samma>; tid=emails-editor-input,
+           tid=share-modal__private-board-link-button-select,
+           tid=copy-share-link-button__button, tid=public-link-access__select-button
+   STATUS  öppnad på fliken Invite. Embed, Publish och AI öppnades inte.
+
+9. Tavlan, Export
+   ÖPPNAS  klick (Anthon) på tid=board-export__plugin_toggle-icon
+   ANKARE  rot: tid=board-export__plugin_top-level-menu-container
+           rader: tid=board-export__plugin_<NAMN>.main (BOARD_EXPORT_PDF, _IMAGE,
+           SAVE_BOARD_AS_TEMPLATE, BOARD_EXPORT_SPREADSHEET, _BACKUP, _EMBED,
+           SAVE_TO_GOOGLE_DRIVE)
+   STATUS  öppnad
+
+10. Tavlan, Get set up
+   ÖPPNAS  klick (Anthon) på tid=welcome-checklist__entrypoint
+   ANKARE  rot: tid=welcome-checklist__panel, rader tid=welcome-checklist__item-<x>,
+           tid=welcome-checklist__sidekick-cta, __connect-tools-cta, __connect-tools-dismiss,
+           knapparna "Close setup checklist" (aria) och "Remove setup" (text)
+   STATUS  öppnad
+
+11. Tavlan, Facilitation
+   ÖPPNAS  klick (Anthon) på tid=timberlake-facilitation-apps-and-reactions-dropdown__trigger
+   ANKARE  rot: tid=timberlake-facilitation-tools__container,
+           tid=reaction_<TYP>, tid=action-item__COUNTDOWN_TRIGGER, __VOTING_TRIGGER,
+           __PRIVATE_MODE, __NOTES
+   STATUS  öppnad
+
+12. Tavlan, video
+   ÖPPNAS  klick (Anthon) på tid=videotoolsdropdown-toggle. Inget samtal startat.
+   ANKARE  tid=videotoolsdropdown-talktrack-record-button, tid=videotoolsdropdown-recordings-watch
+   STATUS  öppnad
+
+13. Tavlan, din meny (bilden med pil)
+   ÖPPNAS  klick (Anthon) på tid=self-user-dropdown-trigger
+   ANKARE  tid=self-user-dropdown__profile-settings, tid=connect-ai-tools-menu-item,
+           "Show cursors" (menuitemcheckbox utan eget testid, text)
+   STATUS  öppnad
+
+14. Tavlan, zoom (61 %)
+   ÖPPNAS  klick (Anthon) på tid=canvas-controls-zoom-button
+   ANKARE  tid=action-item__FULL_SCREEN, __MINIMAP, tid=canvas-controls-GRID_MENU,
+           tid=action-item__SHOW_OBJECT_DIMENSIONS, tid=action-item__ZOOM_CONTROLS-<x>
+   STATUS  öppnad
+
+15. Tavlan, hjälp (frågetecknet)
+   ÖPPNAS  klick (Anthon) på tid=canvas-controls-feedback-button
+   ANKARE  tid=action-item__SEND_FEEDBACK, __HELP_CENTER, __LEARNING_CENTER,
+           __WHAT_IS_NEW, __SHORTCUTS
+   STATUS  öppnad
+
+16. Tavlan, Tools, Media and Integrations (plustecknet)
+   ÖPPNAS  klick (Anthon) på tid=CreationBarButton--CATALOG
+   ANKARE  tid=app-library__search-input, tid=app-library__your-apps-tab,
+           tid=app-library__discover-tab, tid=mega-menu__pin-button,
+           69 verktyg: tid=app-menu__item-<NAMN>
+   STATUS  öppnad. Inget verktyg valt.
+
+17. Tavlan, Templates
+   ÖPPNAS  klick (Anthon) på tid=CreationBarButton--TEMPLATES
+   ANKARE  rot: role=dialog tid=templatePickerModalRoot,
+           tid=template-picker-category-button, tid=template-picker__search_input,
+           tid=templateCard__preview, tid=template-picker__close-button
+   STATUS  öppnad. Ingen mall vald.
+
+   INTE ÖPPNADE med flit: Present (startar presentationsläge), Shapes och
+   Formats and Flows (handlar om det man ritar på tavlan), Activity-panelen.
+
+18. Inställningar, fler sidor (Claude navigerade själv, bara läsning)
+   /app/settings/company/N/user-profile/   tid=page-user-profile_*-tab, user-info-form__*,
+                                            logo-upload__*, change-email-flow__*, sign-out-everywhere__button
+   /app/settings/company/N/teams/N/profile tid=rtb-team-name__input, settings__billing-overview__change-plan-link,
+                                            rtb-team-settings-remove__delete-button
+   /app/settings/company/N/security        tid=settings-toggle__input med aria-label, enterprise-cta__contact-us-button.
+                                            Länkar utan testid: Learn more, Add a domain, Add, guider.
+   /app/settings/company/N/analytics, /ai-features, /teams/N/apps
+                                            på gratisplanen bara uppgraderingsrutor
+   Vänstermenyn: tid=top-level-menu-item__link och secondary-level-menu-item__link
+   (samma testid på alla rader, skiljs åt med aria-label), tid=category-menu-item__expand-button.
+   OBS     En enkät från InMoment (wootric) lägger aria-hidden och en klass på hela sidan.
+           Filtrera bara på [id^=wootric], inte på klassnamn.
+
+
+Svep 2 med tillägget, 2026-10-21 kväll
+--------------------------------------
+
+Tre nivåer: med bubbla och Nytta, med bubbla utan Nytta (obvious: true),
+och medvetet utan bubbla (PW_SKIPPED). "Saknas" är det som borde ha en
+bubbla men inte fick någon.
+
+Sida                         Före (svep 1, första versionen)   Efter (svep 2)
+-------------------------------------------------------------------------------------
+Tavlan, grundläge            45 av 53                           40 av 40, 10 medvetet utan, 1 saknas -> rättad (Starred)
+Kontrollpanelen              36 av 40                           30 av 30, 9 medvetet utan, 0 saknas
+  profilmenyn                11 av 11                           (oförändrad)
+  Create-menyn               6 av 6                             (oförändrad)
+Tavlan, Main menu            -                                  7 av 7 på första nivån
+Inställningar, profil        25 av 28                           18 av 18, 10 medvetet utan
+Inställningar, Users         -                                  12 av 13 -> rättad (frågetecken, radmeny), 4 medvetet utan
+Inställningar, Team profile  -                                  12 av 12, 5 medvetet utan
+Inställningar, Security      -                                  21 av 26, 5 tomma fält utan namn eller testid
+
+Saknas med flit eller utan ankare: se docs/beslut.md och slutrapporten.
+
+Svårigheter i svep 2:
+- Chrome körde en gammal version efter omladdning av tillägget. En flik som
+  inte laddas om behåller det gamla skriptet. Ladda alltid om fliken också.
+- Riktiga klick och riktig hovring från Claude in Chrome når inte tavlan.
+  Simulerad mouseover (det svepet gör) fungerar.

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Plain Words for Miro SWE",
+  "version": "1.0.0",
+  "description": "Inofficiell hjälp: håll musen över en knapp i Miro och läs vad den gör, med vardagliga ord på svenska.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Plain Words for Miro SWE",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://miro.com/app/*"],
+      "js": ["explanations.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
